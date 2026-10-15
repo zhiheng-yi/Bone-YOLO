@@ -4,7 +4,7 @@ Official implementation of **Bone-YOLO: Training Strategy Optimization and Test-
 
 ## Overview
 
-This repository provides the training and evaluation code for Bone-YOLO, which combines a parameter-free training strategy (BTS) and test-time augmentation (TTA) for archaeological human bone detection using YOLO11n.
+This repository provides the training and evaluation code for Bone-YOLO, which combines a parameter-efficient training strategy (BTS) and test-time augmentation (TTA) for archaeological human bone detection using YOLO11n.
 
 - **BTS**: SGD optimizer, cosine learning rate scheduling, close mosaic (last 30 epochs), scale augmentation (0.9).
 - **TTA**: horizontal flipping and multi-scale testing at inference.
@@ -114,4 +114,4 @@ This project is licensed under the **AGPL-3.0 License**. See the [LICENSE](LICEN
 
 ## Acknowledgments
 
-This work uses the Ultralytics YOLOv11 framework.
+This work uses the Ultralytics YOLO11 framework.
