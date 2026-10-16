@@ -1,12 +1,10 @@
-# Bone-YOLO
-
-Official implementation of **Bone-YOLO: Training Strategy Optimization and Test-Time Augmentation for Archaeological Human Bone Detection**.
+# Bone-YOLO: Training Strategy Optimization and Test-Time Augmentation for Archaeological Human Bone Detection
 
 ## Overview
 
 This repository provides the training and evaluation code for Bone-YOLO, which combines a parameter-efficient training strategy (BTS) and test-time augmentation (TTA) for archaeological human bone detection using YOLO11n.
 
-- **BTS**: SGD optimizer, cosine learning rate scheduling, close mosaic (last 30 epochs), scale augmentation (0.9).
+- **BTS**: SGD optimizer, cosine learning-rate scheduling, close mosaic (last 30 epochs), scale augmentation (0.9).
 - **TTA**: horizontal flipping and multi-scale testing at inference.
 
 **Main results** (3 random seeds, mAP50-95):
@@ -93,19 +91,26 @@ For multi-seed validation, run the script with different seeds (modify the seed 
 Evaluate the baseline or the trained Bone-YOLO model on the test set:
 
 ```bash
-# Baseline without TTA
+# Baseline
 python eval_tta.py --weights ./weights/baseline_best.pt
 
-# Bone-YOLO with TTA
+# TTA-only
+python eval_tta.py --weights ./weights/baseline_best.pt --tta
+
+# BTS-only
+python eval_tta.py --weights ./weights/bone_yolo_best.pt
+
+# Bone-YOLO (BTS + TTA)
 python eval_tta.py --weights ./weights/bone_yolo_best.pt --tta
+
 ```
 
 ## Model Weights
 
 The following weights are provided in the `weights/` directory:
 
-- `bone_yolo_best.pt`: Bone-YOLO trained with BTS (seed=0).
-- `baseline_best.pt`: Baseline YOLO11n (seed=0).
+- `bone_yolo_best.pt`: Bone-YOLO trained with BTS (seed = 0).
+- `baseline_best.pt`: Baseline YOLO11n (seed = 0).
 
 ## License
 
